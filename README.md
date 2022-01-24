@@ -2,6 +2,9 @@
 Homework repo for wk4-Javascript Web APIs: Code Quiz
 https://ila0406.github.io/Code-Quiz/
 
+## User Story
+As a student, I want to take a timed quiz that tests me on the fundaments of Javascript then stores the highscores. This way I can gauge my progress compared to my peers
+
 ## Accessibility
 Lighthouse report on accesibility
 ![Lighthouse](./assets/images/Lighthouse.png)
@@ -10,18 +13,15 @@ Lighthouse report on accesibility
 
 The following images shows the mokup of the web application's appearance and functionality along with the validation checks and their subsequent failure messages. 
 
+### Mockup
 ![mockup](./assets/images/mockup.png)
+### Sucess
 ![sucess](./assets/images/Sucess.png)
+### Validation
 ![validation1](./assets/images/Validation1.png)
+### Validation
 ![validation1](./assets/images/Validation2.png)
 
-## User Story
-
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
 
 ## Acceptance Criteria
 
