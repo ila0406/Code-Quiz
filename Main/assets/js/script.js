@@ -8,10 +8,10 @@ var clock = questions.length * 15;
 var timer;
 
 // variables for DOM elements
-var timerEl = document.getElementById("time");
-var startButton = document.getElementById("start");
+var clockEl = document.getElementById("clock");
+var beginButton = document.getElementById("begin");
 var questionsEl = document.getElementById("questions");
-var choicesEl = document.getElementById("choices");
+var choicesEl = document.getElementById("multiple-choice");
 var initialsEl = document.getElementById("initials");
 var submitButton = document.getElementById("submit");
 
