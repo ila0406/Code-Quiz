@@ -6,6 +6,8 @@
 var questionIndex = 0;
 var clock = questions.length * 10;
 var timer;
+var right = 0;
+var wrong = 0;
 
 // variables for DOM elements
 var clockEl = document.getElementById("clock");
@@ -18,7 +20,7 @@ var clearButton = document.getElementById("clear");
 
 // Controls the clock
 function clockTimer() {
-    console.log("clockTimer");
+    // console.log("clockTimer");
     clock--;
     clockEl.textContent = clock;
     if (clock <= 0) {
@@ -28,7 +30,8 @@ function clockTimer() {
 
 // Controls begining of the Quiz
 function beginQuiz() {
-    console.log("begin");
+    // Validation test
+    // console.log("begin");
     var startScreenEl = document.getElementById("start-screen");
 
     // hide html for start screen once the game has begun
@@ -41,7 +44,8 @@ function beginQuiz() {
 
 // Controls the questions given in the Quiz
 function nextQuestion() {
-    console.log("next");
+    // Validation test
+    // console.log("next");
     var currentQuestion = questions[questionIndex];
     var titleEl = document.getElementById("question-title");
     titleEl.textContent = currentQuestion.title;
@@ -60,9 +64,10 @@ function nextQuestion() {
 function questionClick() {  
     // Checks to see if answer was wrong
     if (this.value !== questions[questionIndex].answer) {
-        console.log("Wrong");
         // If wrong, penalize the clock
         clock -= 20;
+        wrong++;
+
         if (clock < 0) 
         {
             clock = 0;
@@ -71,7 +76,7 @@ function questionClick() {
         clockEl.textContent = clock;
     }
     else    {
-        console.log("Correct");
+        right++;
     }
 
     setTimeout(function() {}, 1000);
@@ -90,12 +95,17 @@ function questionClick() {
 function gameOver() {
     var lastScreenEl = document.getElementById("last-screen");
     var finalScoreEl = document.getElementById("final-score");
+    var rightCount = document.getElementById("right");
+    var wrongCount = document.getElementById("wrong");
     
+    // Validation test
     //console.log("gameOver");
     
     clearInterval(timer);
     lastScreenEl.removeAttribute("class");
     finalScoreEl.textContent = clock;
+    rightCount.textContent = right;
+    wrongCount.textContent = wrong;
 
     // hide html for questions once the game is over 
     questionsEl.setAttribute("class", "hide");
@@ -103,7 +113,8 @@ function gameOver() {
 
 // Saves the scores to local storage until user clears
 function saveScore() {
-    console.log("saveScore");
+    // Validation test
+    // console.log("saveScore");
     var initials = initialsEl.value.trim();
 
     // As long as initials were entered, save to local storage
