@@ -131,8 +131,9 @@ function printScores() {
 
 function clearScores() {
     console.log("test");
-    window.localStorage.removeItem("highscores");
-    window.location.reload();
+    window.localStorage.clear();
+    //window.localStorage.removeItem("highscores");
+    //window.location.reload();
 }
 
 // run function when page loads
