@@ -10,7 +10,7 @@ var questions = [
             "predefined"
         ],
         answer: "predefined"
-    },
+     },
     {
         title: "Which company developed JavaScript?",
         choices: [

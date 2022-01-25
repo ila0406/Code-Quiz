@@ -4,7 +4,7 @@
 
 // variables for quiz
 var questionIndex = 0;
-var clock = questions.length * 15;
+var clock = questions.length * 10;
 var timer;
 
 // variables for DOM elements
@@ -57,8 +57,10 @@ function nextQuestion() {
 function questionClick() {
     console.log("questionClick");
     
+    //Check to see if answer was wrong
     if (this.value !== questions[questionIndex].answer) 
     {
+        //if wrong, penalize the clock
         clock -= 20;
         if (clock < 0) 
         {
@@ -69,9 +71,9 @@ function questionClick() {
     }
 
     setTimeout(function() {}, 1000);
-
     questionIndex++;
 
+    //Check to see if game is over, or move on to next question
     if (questionIndex === questions.length) {
         gameOver();
     } else {
@@ -79,6 +81,7 @@ function questionClick() {
     }
 }
 
+// When game is over
 function gameOver() {
     var lastScreenEl = document.getElementById("last-screen");
     var finalScoreEl = document.getElementById("final-score");
@@ -91,14 +94,22 @@ function gameOver() {
 
 function saveScore() {
     console.log("saveScore");
-}
-
-function returnPressed(event) {
-    console.log("pressedReturn");
+    var initials = initialsEl.value.trim();
+    if (initials !== "") {
+        var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+        var newScore = { score: clock, initials: initials};
+        highscores.push(newScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highscores));
+        window.location.href = "highscores.html";
+    }
 }
 
 // Button clicks
 beginButton.onclick = beginQuiz;
+submitButton.onclick = saveScore;
+
+//initialsEl.onkeyup = checkForEnter;
+
 
 ///////////////////////////////////
 // Section for Displaying Scores //
