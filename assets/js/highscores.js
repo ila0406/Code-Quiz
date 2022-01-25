@@ -23,14 +23,15 @@ printScores();
 
 
 // Is this even needed?
-// function clearScores() {
-//     console.log("test");
-//     window.localStorage.clear();
-//     localStorage.clear();
-//     //window.localStorage.removeItem("highscores");
-//     //window.location.reload();
-// }
+function clearScores() {
+    console.log("test");
+    window.localStorage.clear();
+    window.location.reload();
+    //window.localStorage.removeItem("highscores");
+    //window.location.reload();
+}
 
+document.getElementById("clear").onclick = clearScores;
 
 
 
