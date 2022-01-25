@@ -30,6 +30,8 @@ function clockTimer() {
 function beginQuiz() {
     console.log("begin");
     var startScreenEl = document.getElementById("start-screen");
+
+    // hide html for start screen once the game has begun
     startScreenEl.setAttribute("class", "hide");
     questionsEl.removeAttribute("class");
     timer = setInterval(clockTimer, 1000);
@@ -88,10 +90,14 @@ function questionClick() {
 function gameOver() {
     var lastScreenEl = document.getElementById("last-screen");
     var finalScoreEl = document.getElementById("final-score");
-    console.log("gameOver");
+    
+    //console.log("gameOver");
+    
     clearInterval(timer);
     lastScreenEl.removeAttribute("class");
     finalScoreEl.textContent = clock;
+
+    // hide html for questions once the game is over 
     questionsEl.setAttribute("class", "hide");
 }
 
@@ -99,6 +105,8 @@ function gameOver() {
 function saveScore() {
     console.log("saveScore");
     var initials = initialsEl.value.trim();
+
+    // As long as initials were entered, save to local storage
     if (initials !== "") {
         var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
         var newScore = { score: clock, initials: initials};
