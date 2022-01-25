@@ -17,6 +17,12 @@ var submitButton = document.getElementById("submit");
 
 function beginQuiz() {
     console.log("begin");
+    var startScreenEl = document.getElementById("start-screen");
+    startScreenEl.setAttribute("class", "hide");
+    questionsEl.removeAttribute("class");
+    timer = setInterval(clockTimer, 10);
+    clockEl.textContent = clock;
+    nextQuestion();
 }
 
 function nextQuestion() {
@@ -33,6 +39,11 @@ function gameOver() {
 
 function clockTimer() {
     console.log("clockTimer");
+    clock--;
+    clockEl.textContent = clock;
+    if (clock <= 0) {
+        gameOver();
+    }
 }
 
 function saveScore() {
@@ -44,7 +55,7 @@ function returnPressed(event) {
 }
 
 // Button clicks
-
+beginButton.onclick = beginQuiz;
 
 ///////////////////////////////////
 // Section for Displaying Scores //
