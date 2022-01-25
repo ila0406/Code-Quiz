@@ -2,28 +2,45 @@
 //     Section for Quiz          //
 ///////////////////////////////////
 
-// variables to keep track of quiz state
-// variables to reference DOM elements
+// variables for quiz
+var questionIndex = 0;
+var clock = questions.length * 15;
+var timer;
+
+// variables for DOM elements
+var timerEl = document.getElementById("time");
+var startButton = document.getElementById("start");
+var questionsEl = document.getElementById("questions");
+var choicesEl = document.getElementById("choices");
+var initialsEl = document.getElementById("initials");
+var submitButton = document.getElementById("submit");
 
 function beginQuiz() {
+    console.log("begin");
 }
 
 function nextQuestion() {
+    console.log("next");
 }
 
 function questionClick() {
+    console.log("questionClick");
 }
 
 function gameOver() {
+    console.log("gameOver");
 }
 
 function clockTimer() {
+    console.log("clockTimer");
 }
 
 function saveScore() {
+    console.log("saveScore");
 }
 
 function returnPressed(event) {
+    console.log("pressedReturn");
 }
 
 // Button clicks
