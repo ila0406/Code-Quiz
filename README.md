@@ -27,3 +27,7 @@ Example of one of the questions in the quiz
 ### Game Over
 Presents the final score and allows the user to submit their initals
 ![gameover](./assets/images/GameOver.png)
+
+### Highscores
+Presents all Highscores stored locally and the ability to clear the list
+![gameover](./assets/images/Highscores.png)
