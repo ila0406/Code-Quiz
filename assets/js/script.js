@@ -54,12 +54,12 @@ function nextQuestion() {
     });
 }
 
-// Checking for answer to question
+// Checking the answer after multi-choice option is selected
 function questionClick() {  
-    //Check to see if answer was wrong
-    if (this.value !== questions[questionIndex].answer) 
-    {   console.log("Wrong");
-        //if wrong, penalize the clock
+    // Checks to see if answer was wrong
+    if (this.value !== questions[questionIndex].answer) {
+        console.log("Wrong");
+        // If wrong, penalize the clock
         clock -= 20;
         if (clock < 0) 
         {
@@ -73,6 +73,7 @@ function questionClick() {
     }
 
     setTimeout(function() {}, 1000);
+    // Move to the next question in the quiz by incrementing the index
     questionIndex++;
 
     //Check to see if game is over, or move on to next question
@@ -80,12 +81,10 @@ function questionClick() {
         gameOver();
     } else {
         nextQuestion();
-        console.log(questionIndex);
-        console.log("next")
     }
 }
 
-// When game is over
+// What to do when game is over
 function gameOver() {
     var lastScreenEl = document.getElementById("last-screen");
     var finalScoreEl = document.getElementById("final-score");
@@ -96,6 +95,7 @@ function gameOver() {
     questionsEl.setAttribute("class", "hide");
 }
 
+// Saves the scores to local storage until user clears
 function saveScore() {
     console.log("saveScore");
     var initials = initialsEl.value.trim();
@@ -105,8 +105,6 @@ function saveScore() {
         highscores.push(newScore);
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
         window.location.href = "highscores.html";
-        console.log("initials");
-        confirm("Did it work?");
     }
 }
 
@@ -115,6 +113,8 @@ function saveScore() {
   submitButton.onclick = saveScore;
 
   
+
+/// Question for Tutor. Why couldn't I have these functions in the main JS?
 
 ///////////////////////////////////
 // Section for Displaying Scores //
@@ -135,8 +135,7 @@ function saveScore() {
 // }
 
 
-
-// // // run function when page loads
+// run function when page loads
 // printScores();
 
 
@@ -149,8 +148,4 @@ function saveScore() {
 //     //window.location.reload();
 // }
 
-
-
-
-//   clearButton.onclick = clearScores;
-  
+//   clearButton.onclick = clearScores;  

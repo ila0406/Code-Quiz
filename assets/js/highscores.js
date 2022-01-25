@@ -18,7 +18,7 @@ function printScores() {
 
 
 
-// // // run function when page loads
+// run function when page loads
 printScores();
 
 
