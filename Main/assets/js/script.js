@@ -39,19 +39,52 @@ function beginQuiz() {
 // Proceed tp the next question in the quiz
 function nextQuestion() {
     console.log("next");
+    var currentQuestion = questions[questionIndex];
+    var titleEl = document.getElementById("question-title");
+    titleEl.textContent = currentQuestion.title;
+    choicesEl.innerHTML = "";
+    currentQuestion.choices.forEach(function(choice, i) {
+        var choiceAttr = document.createElement("button");
+        choiceAttr.setAttribute("class", "choice");
+        choiceAttr.setAttribute("value", choice);
+        choiceAttr.textContent = i + 1 + ". " + choice;
+        choiceAttr.onclick = questionClick;
+        choicesEl.appendChild(choiceAttr);
+    });
 }
 
 // Checking for answer to question
 function questionClick() {
     console.log("questionClick");
+    
+    if (this.value !== questions[questionIndex].answer) 
+    {
+        clock -= 20;
+        if (clock < 0) 
+        {
+            clock = 0;
+        }
+
+        clockEl.textContent = clock;
+    }
+
+    setTimeout(function() {}, 1000);
+
+    questionIndex++;
+
+    if (questionIndex === questions.length) {
+        gameOver();
+    } else {
+        nextQuestion();
+    }
 }
 
 function gameOver() {
+    var lastScreenEl = document.getElementById("last-screen");
+    var finalScoreEl = document.getElementById("final-score");
     console.log("gameOver");
     clearInterval(timer);
-    var lastScreenEl = document.getElementById("last-screen");
     lastScreenEl.removeAttribute("class");
-    var finalScoreEl = document.getElementById("final-score");
     finalScoreEl.textContent = clock;
     questionsEl.setAttribute("class", "hide");
 }

@@ -14,7 +14,9 @@
 
     <div class="timer">Clock: <span id="clock">0</span></div>
 
+    <!-- Main Section of code - contains the quiz -->
     <main class="container">
+      <!-- Subsection - Intro screen for quiz -->
       <section id="start-screen" class="start">
         <h1>Code Quiz</h1>
         <p>
@@ -23,11 +25,13 @@
         <button id="begin">Begin!</button>
       </section>
 
+      <!-- Subsection - for displaying the questions -->
       <section id="questions" class="hide">
         <h2 id="question-title"></h2>
         <div id="multiple-choice" class="choices"></div>
       </section>
 
+      <!-- Game over & form for submitting score -->
       <section id="last-screen" class="hide">
         <h2>Game Over</h2>
         <p>Your final score is <span id="final-score"></span>.</p>
@@ -36,8 +40,6 @@
           <button id="submit">Submit</button>
         </p>
       </section>
-
-      <!-- another section? -->
     </main>
 
     <script src="./assets/js/quiz-content.js"></script>

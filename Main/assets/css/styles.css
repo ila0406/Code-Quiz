@@ -35,3 +35,7 @@ a:hover {
     top: 20px;
     right: 20px;
 }
+
+.choices button {
+    display: block;
+  }
