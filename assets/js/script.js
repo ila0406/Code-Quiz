@@ -14,6 +14,7 @@ var questionsEl = document.getElementById("questions");
 var choicesEl = document.getElementById("multiple-choice");
 var initialsEl = document.getElementById("initials");
 var submitButton = document.getElementById("submit");
+var clearButton = document.getElementById("clear");
 
 // Timer function 
 function clockTimer() {
@@ -107,6 +108,7 @@ function saveScore() {
 // Button clicks
 beginButton.onclick = beginQuiz;
 submitButton.onclick = saveScore;
+clearButton.onclick = clearScores;
 
 
 ///////////////////////////////////
@@ -127,16 +129,11 @@ function printScores() {
     });
 }
 
-function clearHighscores() {
-    console.log("clearScore  1");
+function clearScores() {
+    console.log("test");
     window.localStorage.removeItem("highscores");
     window.location.reload();
-    console.log("clearScore  2");
 }
 
-// getElementById
-document.getElementById("clear").onclick = clearHighscores;
-
-
 // run function when page loads
-printScores();
+//printScores();
