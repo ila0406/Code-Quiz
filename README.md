@@ -11,7 +11,7 @@ Lighthouse report on accesibility
 
 ## Mock-Up 
 
-The following images shows the mokup of the web application's appearance and functionality along with the validation checks and their subsequent failure messages. 
+The following images shows the mokup of the web application's appearance and functionality. 
 
 ### Mockup
 ![mockup](./assets/images/mockup.png)

@@ -15,7 +15,7 @@ var choicesEl = document.getElementById("multiple-choice");
 var initialsEl = document.getElementById("initials");
 var submitButton = document.getElementById("submit");
 
-// Timer
+// Timer function 
 function clockTimer() {
     console.log("clockTimer");
     clock--;
@@ -108,24 +108,34 @@ function saveScore() {
 beginButton.onclick = beginQuiz;
 submitButton.onclick = saveScore;
 
-//initialsEl.onkeyup = checkForEnter;
-
 
 ///////////////////////////////////
 // Section for Displaying Scores //
 ///////////////////////////////////
 
 function printScores() {
-  // declare variables
-  // sort scores
-  // output scores
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+    highscores.sort(function(a, b) {
+      return b.score - a.score;
+    });
+  
+    highscores.forEach(function(score) {
+      var liTag = document.createElement("li");
+      liTag.textContent = score.initials + " - " + score.score;
+      var olEl = document.getElementById("highscores");
+      olEl.appendChild(liTag);
+    });
 }
 
-function clearScores() {
-  //empty local storage
+function clearHighscores() {
+    console.log("clearScore  1");
+    window.localStorage.removeItem("highscores");
+    window.location.reload();
+    console.log("clearScore  2");
 }
 
 // getElementById
+document.getElementById("clear").onclick = clearHighscores;
 
 
 // run function when page loads
