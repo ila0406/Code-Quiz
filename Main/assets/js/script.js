@@ -15,28 +15,7 @@ var choicesEl = document.getElementById("multiple-choice");
 var initialsEl = document.getElementById("initials");
 var submitButton = document.getElementById("submit");
 
-function beginQuiz() {
-    console.log("begin");
-    var startScreenEl = document.getElementById("start-screen");
-    startScreenEl.setAttribute("class", "hide");
-    questionsEl.removeAttribute("class");
-    timer = setInterval(clockTimer, 10);
-    clockEl.textContent = clock;
-    nextQuestion();
-}
-
-function nextQuestion() {
-    console.log("next");
-}
-
-function questionClick() {
-    console.log("questionClick");
-}
-
-function gameOver() {
-    console.log("gameOver");
-}
-
+// Timer
 function clockTimer() {
     console.log("clockTimer");
     clock--;
@@ -44,6 +23,37 @@ function clockTimer() {
     if (clock <= 0) {
         gameOver();
     }
+}
+
+// Begin
+function beginQuiz() {
+    console.log("begin");
+    var startScreenEl = document.getElementById("start-screen");
+    startScreenEl.setAttribute("class", "hide");
+    questionsEl.removeAttribute("class");
+    timer = setInterval(clockTimer, 1000);
+    clockEl.textContent = clock;
+    nextQuestion();
+}
+
+// Proceed tp the next question in the quiz
+function nextQuestion() {
+    console.log("next");
+}
+
+// Checking for answer to question
+function questionClick() {
+    console.log("questionClick");
+}
+
+function gameOver() {
+    console.log("gameOver");
+    clearInterval(timer);
+    var lastScreenEl = document.getElementById("last-screen");
+    lastScreenEl.removeAttribute("class");
+    var finalScoreEl = document.getElementById("final-score");
+    finalScoreEl.textContent = clock;
+    questionsEl.setAttribute("class", "hide");
 }
 
 function saveScore() {
