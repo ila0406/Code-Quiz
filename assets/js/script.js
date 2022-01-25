@@ -16,7 +16,7 @@ var initialsEl = document.getElementById("initials");
 var submitButton = document.getElementById("submit");
 var clearButton = document.getElementById("clear");
 
-// Timer function 
+// Controls the clock
 function clockTimer() {
     console.log("clockTimer");
     clock--;
@@ -26,7 +26,7 @@ function clockTimer() {
     }
 }
 
-// Begin
+// Controls begining of the Quiz
 function beginQuiz() {
     console.log("begin");
     var startScreenEl = document.getElementById("start-screen");
@@ -37,7 +37,7 @@ function beginQuiz() {
     nextQuestion();
 }
 
-// Proceed tp the next question in the quiz
+// Controls the questions given in the Quiz
 function nextQuestion() {
     console.log("next");
     var currentQuestion = questions[questionIndex];
@@ -55,12 +55,10 @@ function nextQuestion() {
 }
 
 // Checking for answer to question
-function questionClick() {
-    console.log("questionClick");
-    
+function questionClick() {  
     //Check to see if answer was wrong
     if (this.value !== questions[questionIndex].answer) 
-    {
+    {   console.log("Wrong");
         //if wrong, penalize the clock
         clock -= 20;
         if (clock < 0) 
@@ -69,6 +67,9 @@ function questionClick() {
         }
 
         clockEl.textContent = clock;
+    }
+    else    {
+        console.log("Correct");
     }
 
     setTimeout(function() {}, 1000);
@@ -79,6 +80,8 @@ function questionClick() {
         gameOver();
     } else {
         nextQuestion();
+        console.log(questionIndex);
+        console.log("next")
     }
 }
 
@@ -106,12 +109,6 @@ function saveScore() {
     }
 }
 
-// Button clicks
-beginButton.onclick = beginQuiz;
-submitButton.onclick = saveScore;
-clearButton.onclick = clearScores;
-
-
 ///////////////////////////////////
 // Section for Displaying Scores //
 ///////////////////////////////////
@@ -130,16 +127,10 @@ function printScores() {
     });
 }
 
-function clearScores() {
-    console.log("test");
-    window.localStorage.clear();
-    localStorage.clear();
-    //window.localStorage.removeItem("highscores");
-    //window.location.reload();
-}
+
 
 // run function when page loads
-//printScores();
+printScores();
 
 
 function renderTodos() {
@@ -162,3 +153,17 @@ function renderTodos() {
       todoList.appendChild(li);
     }
   }
+
+
+  // Button clicks
+beginButton.onclick = beginQuiz;
+submitButton.onclick = saveScore;
+clearButton.onclick = clearScores;
+
+function clearScores() {
+    console.log("test");
+    window.localStorage.clear();
+    localStorage.clear();
+    //window.localStorage.removeItem("highscores");
+    //window.location.reload();
+}
