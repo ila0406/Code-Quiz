@@ -101,7 +101,7 @@ function saveScore() {
         var newScore = { score: clock, initials: initials};
         highscores.push(newScore);
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
-        window.location.href = "./assets/highscores.html";
+        window.location.href = "highscores.html";
         console.log("initials");
     }
 }
