@@ -106,64 +106,51 @@ function saveScore() {
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
         window.location.href = "highscores.html";
         console.log("initials");
+        confirm("Did it work?");
     }
 }
+
+  // Button clicks
+  beginButton.onclick = beginQuiz;
+  submitButton.onclick = saveScore;
+
+  
 
 ///////////////////////////////////
 // Section for Displaying Scores //
 ///////////////////////////////////
 
-function printScores() {
-    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
-    highscores.sort(function(a, b) {
-      return b.score - a.score;
-    });
+// function printScores() {
+//     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+//     highscores.sort(function(a, b) {
+//       return b.score - a.score;
+//     });
   
-    highscores.forEach(function(score) {
-      var liTag = document.createElement("li");
-      liTag.textContent = score.initials + " - " + score.score;
-      var olEl = document.getElementById("highscores");
-      olEl.appendChild(liTag);
-    });
-}
+//     highscores.forEach(function(score) {
+//       var liTag = document.createElement("li");
+//       liTag.textContent = score.initials + " - " + score.score;
+//       var olEl = document.getElementById("highscores");
+//       olEl.appendChild(liTag);
+//     });
+// }
 
 
 
-// run function when page loads
-printScores();
+// // // run function when page loads
+// printScores();
 
 
-function renderTodos() {
-    // Clear todoList element and update todoCountSpan
-    todoList.innerHTML = "";
-    todoCountSpan.textContent = todos.length;
+// Is this even needed?
+// function clearScores() {
+//     console.log("test");
+//     window.localStorage.clear();
+//     localStorage.clear();
+//     //window.localStorage.removeItem("highscores");
+//     //window.location.reload();
+// }
+
+
+
+
+//   clearButton.onclick = clearScores;
   
-    // Render a new li for each todo
-    for (var i = 0; i < todos.length; i++) {
-      var todo = todos[i];
-  
-      var li = document.createElement("li");
-      li.textContent = todo;
-      li.setAttribute("data-index", i);
-  
-      var button = document.createElement("button");
-      button.textContent = "Complete ✔️";
-  
-      li.appendChild(button);
-      todoList.appendChild(li);
-    }
-  }
-
-
-  // Button clicks
-beginButton.onclick = beginQuiz;
-submitButton.onclick = saveScore;
-clearButton.onclick = clearScores;
-
-function clearScores() {
-    console.log("test");
-    window.localStorage.clear();
-    localStorage.clear();
-    //window.localStorage.removeItem("highscores");
-    //window.location.reload();
-}
