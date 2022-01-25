@@ -102,6 +102,7 @@ function saveScore() {
         highscores.push(newScore);
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
         window.location.href = "./assets/highscores.html";
+        console.log("initials");
     }
 }
 
@@ -132,9 +133,32 @@ function printScores() {
 function clearScores() {
     console.log("test");
     window.localStorage.clear();
+    localStorage.clear();
     //window.localStorage.removeItem("highscores");
     //window.location.reload();
 }
 
 // run function when page loads
 //printScores();
+
+
+function renderTodos() {
+    // Clear todoList element and update todoCountSpan
+    todoList.innerHTML = "";
+    todoCountSpan.textContent = todos.length;
+  
+    // Render a new li for each todo
+    for (var i = 0; i < todos.length; i++) {
+      var todo = todos[i];
+  
+      var li = document.createElement("li");
+      li.textContent = todo;
+      li.setAttribute("data-index", i);
+  
+      var button = document.createElement("button");
+      button.textContent = "Complete ✔️";
+  
+      li.appendChild(button);
+      todoList.appendChild(li);
+    }
+  }
